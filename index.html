@@ -20,18 +20,20 @@
       color: #333;
       font-size: 24px;
       margin-bottom: 20px;
+      text-align: center;
     }
 
     /* Form Container */
     #myForm {
-      width: 100%;
+      width: 90%; /* Adjust width for small screens */
       max-width: 400px;
       padding: 20px;
       background-image: url('https://cdn.shopify.com/s/files/1/0877/4700/2684/files/gray.jpg?v=1729978114');
-background-size: cover;
-background-position: center;
+      background-size: cover;
+      background-position: center;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
       border-radius: 8px;
+      box-sizing: border-box; /* Include padding and border in the element's total width and height */
     }
     
     label {
@@ -42,16 +44,14 @@ background-position: center;
     }
     
     input, select {
-  width: 100%;
-  height: 40px; /* Set a consistent height for uniformity */
-  padding: 0 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-  box-sizing: border-box; /* Ensure padding doesn't affect overall width */
-}
-
+      width: 100%;
+      height: 40px; /* Set a consistent height for uniformity */
+      padding: 0 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      box-sizing: border-box; /* Ensure padding doesn't affect overall width */
     }
     
     input:focus, select:focus {
@@ -86,6 +86,7 @@ background-position: center;
       background-color: rgba(0, 0, 0, 0.6);
       justify-content: center;
       align-items: center;
+      overflow-y: auto; /* Enable vertical scrolling if needed */
     }
     
     .modal-content {
@@ -94,8 +95,8 @@ background-position: center;
       background-position: center;
       padding: 40px 20px;
       border-radius: 10px;
-      width: 500px;
-      height: 500px;
+      width: 90%; /* Responsive width */
+      max-width: 500px; /* Max width for larger screens */
       color: #fff;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
       position: relative;
@@ -125,43 +126,37 @@ background-position: center;
     }
 
     /* Styling only for the code answer */
+    #modal-code, #modal-number, #modal-aed, #modal-contact {
+      text-align: right; /* Align text to the right */
+      font-family: "Impact", "Arial Black", sans-serif;
+      margin-top: 10px;
+      color: black;
+    }
+
+    /* Adjust font sizes for different screens */
     #modal-code {
-      margin-top: 239px;
-      margin-right: 410px;
-      font-family: "Impact", "Arial Black", sans-serif;
-      font-size: 45px;
-      color: black;
-      text-align: right;
+      font-size: 20px; /* Default font size */
     }
 
-    /* Styling only for the number answer */
     #modal-number {
-      margin-top: -125px;
-      margin-right: 120px;
-      font-family: "Impact", "Arial Black", sans-serif;
-      font-size: 60px;
-      color: black;
-      text-align: right;
+      font-size: 24px; /* Default font size */
     }
 
-    /* Styling for AED answer */
     #modal-aed {
-      margin-top: -20px;
-      margin-right: 140px;
-      font-family: "Impact", "Arial Black", sans-serif;
-      font-size: 50px;
+      font-size: 22px; /* Default font size */
       color: red;
-      text-align: right;
     }
 
-    /* Styling for Contact answer */
     #modal-contact {
-      margin-top: 60px;
-      margin-right: 240px;
-      font-family: "Impact", "Arial Black", sans-serif;
-      font-size: 40px;
-      color: black;
-      text-align: right;
+      font-size: 20px; /* Default font size */
+    }
+
+    /* Responsive Font Sizes */
+    @media (max-width: 600px) {
+      #modal-code { font-size: 18px; }
+      #modal-number { font-size: 20px; }
+      #modal-aed { font-size: 18px; }
+      #modal-contact { font-size: 18px; }
     }
   </style>
 </head>
@@ -201,7 +196,7 @@ background-position: center;
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closePopup()">×</span>
-      <h3></h3>
+      <h3>Submission Details</h3>
       <div class="modal-details">
         <p id="modal-code"></p>
         <p id="modal-number"></p>
@@ -219,9 +214,9 @@ background-position: center;
       const aed = document.getElementById('aed').value;
 
       // Display contact, code, number, and AED values in their specified styles
-      document.getElementById('modal-contact').innerText = contact;
-      document.getElementById('modal-code').innerText = code;
-      document.getElementById('modal-number').innerText = number;
+      document.getElementById('modal-contact').innerText = `Contact: ${contact}`;
+      document.getElementById('modal-code').innerText = `Code: ${code}`;
+      document.getElementById('modal-number').innerText = `Number: ${number}`;
       document.getElementById('modal-aed').innerText = `AED: ${aed}`;
 
       document.getElementById('modal').style.display = 'flex';
