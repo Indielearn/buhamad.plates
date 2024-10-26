@@ -93,13 +93,14 @@
       background-image: url('https://cdn.shopify.com/s/files/1/0877/4700/2684/files/backg1.jpg?v=1729975195');
       background-size: cover;
       background-position: center;
-      padding: 40px 20px;
+      padding: 20px;
       border-radius: 10px;
       width: 90%; /* Responsive width */
       max-width: 500px; /* Max width for larger screens */
       color: #fff;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
       position: relative;
+      text-align: center; /* Center text in modal */
     }
 
     .close-btn {
@@ -119,37 +120,19 @@
       color: #ddd;
     }
 
-    .modal-content h3 {
-      margin: 0;
-      color: #fff;
-      text-align: center;
-    }
-
-    /* Styling only for the code answer */
+    /* Styling for Modal Text */
     #modal-code, #modal-number, #modal-aed, #modal-contact {
-      text-align: right; /* Align text to the right */
+      text-align: center; /* Center text for all modal details */
       font-family: "Impact", "Arial Black", sans-serif;
       margin-top: 10px;
       color: black;
     }
 
     /* Adjust font sizes for different screens */
-    #modal-code {
-      font-size: 20px; /* Default font size */
-    }
-
-    #modal-number {
-      font-size: 24px; /* Default font size */
-    }
-
-    #modal-aed {
-      font-size: 22px; /* Default font size */
-      color: red;
-    }
-
-    #modal-contact {
-      font-size: 20px; /* Default font size */
-    }
+    #modal-code { font-size: 20px; }
+    #modal-number { font-size: 24px; }
+    #modal-aed { font-size: 22px; color: red; }
+    #modal-contact { font-size: 20px; }
 
     /* Responsive Font Sizes */
     @media (max-width: 600px) {
@@ -157,6 +140,17 @@
       #modal-number { font-size: 20px; }
       #modal-aed { font-size: 18px; }
       #modal-contact { font-size: 18px; }
+    }
+
+    /* Modal padding for smaller screens */
+    @media (max-width: 400px) {
+      .modal-content {
+        padding: 15px; /* Adjust padding for small screens */
+      }
+      .close-btn {
+        top: 5px;
+        right: 5px;
+      }
     }
   </style>
 </head>
