@@ -220,11 +220,12 @@
 </div>
 
 <script>
-  function showPopup() {
+  async function showPopup() {
     const contact = document.getElementById('contact').value;
     const code = document.getElementById('code').value;
     const number = document.getElementById('number').value;
     const aed = document.getElementById('aed').value;
+    const emirate = document.getElementById('emirate').value; // Get emirate value
 
     // Display contact, code, number, and AED values in their specified styles
     document.getElementById('modal-contact').innerText = contact;
@@ -232,7 +233,36 @@
     document.getElementById('modal-number').innerText = number;
     document.getElementById('modal-aed').innerText = aed;
 
+    // Send data to Google Sheets
+    await sendDataToGoogleSheets(contact, emirate, code, number, aed);
+
     document.getElementById('modal').style.display = 'flex';
+  }
+
+  async function sendDataToGoogleSheets(contact, emirate, code, number, aed) {
+    const url = "YOUR_SCRIPT_URL"; // Replace with your Google Apps Script URL
+    const data = {
+      contact: contact,
+      emirate: emirate,
+      code: code,
+      number: number,
+      aed: aed
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
   function closePopup() {
@@ -246,6 +276,7 @@
     }
   }
 </script>
+
 
 
 </body>
