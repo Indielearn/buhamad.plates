@@ -87,7 +87,7 @@
     }
     
     .modal-content {
-      background-image: url('https://cdn.shopify.com/s/files/1/0877/4700/2684/files/backg1.jpg?v=1729975195');
+      background-image: url('https://cdn.shopify.com/s/files/1/0877/4700/2684/files/backg2.jpg?v=1730005748');
       background-size: cover;
       background-position: center;
       padding: 40px 20px;
@@ -147,21 +147,23 @@
 
     /* Styling for AED answer */
     #modal-aed {
-      top: 220px;
+      top: 240px;
       left: 120px;
       font-family: "Impact", "Arial Black", sans-serif;
-      font-size: 35px;
+      font-size: 40px;
       color: red;
       text-align: left;
       position: absolute;
+	  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+      filter: drop-shadow(0 0 5px #f0f) drop-shadow(0 0 15px #f0f);
     }
 
     /* Styling for Contact answer */
     #modal-contact {
-      top: 315px;
+      top: 322px;
       left: 60px;
       font-family: "Impact", "Arial Black", sans-serif;
-      font-size: 40px;
+      font-size: 35px;
       color: black;
       text-align: right;
       position: absolute;
@@ -172,8 +174,10 @@
 </head>
 <body>
 
-  <div id="myForm">
-  <h2>buhamad.plates</h2>
+ <div id="myForm">
+  <!-- Replace the title text with an image -->
+  <img src="https://cdn.shopify.com/s/files/1/0877/4700/2684/files/1000px.png?v=1730006682" alt="buhamad.plates" style="width: 400px; margin-bottom: 5	px;">
+
   <form onsubmit="showPopup(); return false;">
     <!-- Contact Field -->
     <label for="contact">Contact:</label>
@@ -201,6 +205,7 @@
     <button type="submit">Submit</button>
   </form>
 </div>
+
 
 
   <!-- Modal -->
