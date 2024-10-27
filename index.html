@@ -87,7 +87,7 @@
     }
     
     .modal-content {
-      background-image: url('https://cdn.shopify.com/s/files/1/0877/4700/2684/files/backg6.jpg?v=1730009107');
+      background-image: url('https://cdn.shopify.com/s/files/1/0877/4700/2684/files/backg7.jpg?v=1730016410');
       background-size: cover;
       background-position: center;
       padding: 40px 20px;
@@ -154,7 +154,7 @@
       color: red;
       text-align: left;
       position: absolute;
-	  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+      text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
     }
 
     /* Styling for Contact answer */
@@ -204,8 +204,6 @@
   </form>
 </div>
 
-
-
 <!-- Modal -->
 <div id="modal" class="modal" onclick="handleModalClick(event)">
   <div class="modal-content">
@@ -220,7 +218,7 @@
 </div>
 
 <script>
-  async function showPopup() {
+  function showPopup() {
     const contact = document.getElementById('contact').value;
     const code = document.getElementById('code').value;
     const number = document.getElementById('number').value;
@@ -233,36 +231,7 @@
     document.getElementById('modal-number').innerText = number;
     document.getElementById('modal-aed').innerText = aed;
 
-    // Send data to Google Sheets
-    await sendDataToGoogleSheets(contact, emirate, code, number, aed);
-
     document.getElementById('modal').style.display = 'flex';
-  }
-
-  async function sendDataToGoogleSheets(contact, emirate, code, number, aed) {
-    const url = "https://script.google.com/macros/s/AKfycbyxcs8OxUp-kdHMFzJN4EKYnMXjo_3xDojszZjLO4Ft7DB2H7vHm8B3JpdVuqQEvSJg/exec"; // Replace with your Google Apps Script URL
-    const data = {
-      contact: contact,
-      emirate: emirate,
-      code: code,
-      number: number,
-      aed: aed
-    };
-
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-      
-      const result = await response.json();
-      console.log(result);
-    } catch (error) {
-      console.error('Error:', error);
-    }
   }
 
   function closePopup() {
@@ -276,8 +245,6 @@
     }
   }
 </script>
-
-
 
 </body>
 </html>
