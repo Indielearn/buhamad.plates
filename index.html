@@ -218,33 +218,48 @@
 </div>
 
 <script>
-  function showPopup() {
+  async function showPopup() {
     const contact = document.getElementById('contact').value;
     const code = document.getElementById('code').value;
     const number = document.getElementById('number').value;
     const aed = document.getElementById('aed').value;
-    const emirate = document.getElementById('emirate').value; // Get emirate value
+    const emirate = document.getElementById('emirate').value;
 
-    // Display contact, code, number, and AED values in their specified styles
+    // Display values in modal
     document.getElementById('modal-contact').innerText = contact;
     document.getElementById('modal-code').innerText = code;
     document.getElementById('modal-number').innerText = number;
     document.getElementById('modal-aed').innerText = aed;
-
     document.getElementById('modal').style.display = 'flex';
+
+    // Send data to Google Sheets
+    const url = "https://script.google.com/macros/s/AKfycbx16wCQlAEV1qO6kBiKbOYkQBx6UYzevzOfdKlGFchUszuUXSp4GQys7aYV9MdphgZkTg/exec"; // Replace with your Google Apps Script URL
+    const data = { contact, emirate, code, number, aed };
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
   function closePopup() {
     document.getElementById('modal').style.display = 'none';
   }
 
-  // Close the modal if clicked outside the modal-content
   function handleModalClick(event) {
     if (event.target === document.getElementById('modal')) {
       closePopup();
     }
   }
 </script>
+
 
 </body>
 </html>
