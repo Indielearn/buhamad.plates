@@ -206,8 +206,8 @@
 
 
 
- <!-- Modal -->
-<div id="modal" class="modal">
+<!-- Modal -->
+<div id="modal" class="modal" onclick="handleModalClick(event)">
   <div class="modal-content">
     <h3></h3>
     <div class="modal-details">
@@ -219,27 +219,34 @@
   </div>
 </div>
 
+<script>
+  function showPopup() {
+    const contact = document.getElementById('contact').value;
+    const code = document.getElementById('code').value;
+    const number = document.getElementById('number').value;
+    const aed = document.getElementById('aed').value;
 
-  <script>
-    function showPopup() {
-      const contact = document.getElementById('contact').value;
-      const code = document.getElementById('code').value;
-      const number = document.getElementById('number').value;
-      const aed = document.getElementById('aed').value;
+    // Display contact, code, number, and AED values in their specified styles
+    document.getElementById('modal-contact').innerText = contact;
+    document.getElementById('modal-code').innerText = code;
+    document.getElementById('modal-number').innerText = number;
+    document.getElementById('modal-aed').innerText = aed;
 
-      // Display contact, code, number, and AED values in their specified styles
-      document.getElementById('modal-contact').innerText = contact;
-      document.getElementById('modal-code').innerText = code;
-      document.getElementById('modal-number').innerText = number;
-      document.getElementById('modal-aed').innerText = aed;
+    document.getElementById('modal').style.display = 'flex';
+  }
 
-      document.getElementById('modal').style.display = 'flex';
+  function closePopup() {
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  // Close the modal if clicked outside the modal-content
+  function handleModalClick(event) {
+    if (event.target === document.getElementById('modal')) {
+      closePopup();
     }
+  }
+</script>
 
-    function closePopup() {
-      document.getElementById('modal').style.display = 'none';
-    }
-  </script>
 
 </body>
 </html>
