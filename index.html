@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Styled Form with Popup</title>
+  <title>buhamad.plates</title>
   <style>
     /* General Styling */
     body {
@@ -127,42 +127,47 @@ background-position: center;
 
     /* Styling only for the code answer */
     #modal-code {
-      margin-top: 239px;
-      margin-right: 410px;
+      top: 170px;
+      left: 60px;
       font-family: "Impact", "Arial Black", sans-serif;
-      font-size: 45px;
+      font-size: 35px;
       color: black;
-      text-align: right;
+      text-align: left;
+	  position: absolute;
     }
 
     /* Styling only for the number answer */
     #modal-number {
-      margin-top: -125px;
-      margin-right: 120px;
+      top: 134px;
+      left: 150px;
       font-family: "Impact", "Arial Black", sans-serif;
-      font-size: 60px;
+      font-size: 50px;
       color: black;
-      text-align: right;
+      text-align: center;
+	  letter-spacing: 3px;
+	  position: absolute;
     }
 
     /* Styling for AED answer */
     #modal-aed {
-      margin-top: -20px;
-      margin-right: 140px;
+      top: 220px;
+      left: 100px;
       font-family: "Impact", "Arial Black", sans-serif;
-      font-size: 50px;
+      font-size: 40px;
       color: red;
-      text-align: right;
+      text-align: left;
+	  position: absolute;
     }
 
     /* Styling for Contact answer */
     #modal-contact {
-      margin-top: 60px;
-      margin-right: 200px;
+      top: 315px;
+      left: 60px;
       font-family: "Impact", "Arial Black", sans-serif;
       font-size: 40px;
       color: black;
       text-align: right;
+	  position: absolute;
     }
   </style>
 </head>
@@ -190,9 +195,11 @@ background-position: center;
       <label for="number">#:</label>
       <input type="number" id="number" placeholder="Enter a number">
 
+
       <!-- AED Field -->
-      <label for="aed">AED:</label>
-      <input type="number" id="aed" placeholder="Enter AED amount">
+<label for="aed">AED:</label>
+<input type="text" id="aed" placeholder="Enter AED amount">
+
 
       <button type="button" onclick="showPopup()">Submit</button>
     </form>
